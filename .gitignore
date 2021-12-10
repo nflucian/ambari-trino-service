@@ -1,0 +1,9 @@
+*.pyc
+*.swp
+*.eggs
+.idea/
+.tox/
+build/
+dist/
+ambari_trino.egg-info/
+docs/_build

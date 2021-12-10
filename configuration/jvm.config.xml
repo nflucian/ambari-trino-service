@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<configuration>
+    <property>
+        <name>content</name>
+        <value>
+            -server
+            -Xmx16G
+            -XX:-UseBiasedLocking
+            -XX:+UseG1GC
+            -XX:G1HeapRegionSize=32M
+            -XX:+ExplicitGCInvokesConcurrent
+            -XX:+ExitOnOutOfMemoryError
+            -XX:+HeapDumpOnOutOfMemoryError
+            -XX:-OmitStackTraceInFastThrow
+            -XX:ReservedCodeCacheSize=512M
+            -XX:PerMethodRecompilationCutoff=10000
+            -XX:PerBytecodeRecompilationCutoff=10000
+            -Djdk.attach.allowAttachSelf=true
+            -Djdk.nio.maxCachedBufferSize=2000000
+            -Dcom.sun.management.jmxremote.rmi.port=9081
+            -DHADOOP_USER_NAME=hive
+        </value>
+        <description>
+            A list of command line options used for launching the Java Virtual
+            Machine. The format of the file must be one option per line. These
+            options are not interpreted by the shell, so options containing spaces or
+            other special characters should not be quoted (as demonstrated by the
+            OnOutOfMemoryError option).
+        </description>
+        <value-attributes>
+            <type>content</type>
+            <show-property-name>false</show-property-name>
+        </value-attributes>
+        <on-ambari-upgrade add="true"/>
+    </property>
+</configuration>
